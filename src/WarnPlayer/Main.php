@@ -22,7 +22,7 @@
           unset($args[0]);
           $reason = implode(" ", $args);
           $player->sendMessage(TF::RED . "You have been warned by " . $sender_name . " for " . $reason . "!");
-          $this->getServer()->broadcastMessage(TF::PURPLE . "PUNISHMENT >" . TF::YELLOW $player_name . " was warned by " . $sender_name . " for " . $reason . "!");
+          $this->getServer()->broadcastMessage(TF::PURPLE . "PUNISHMENT >" . TF::YELLOW . $player_name . " was warned by " . $sender_name . " for " . $reason . "!");
           $sender->sendMessage(TF::GREEN . $player_name . " was warned for " . $reason . "!");
         }
       }
