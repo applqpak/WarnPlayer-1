@@ -19,13 +19,17 @@
         } else {
           $sender_name = $sender->getName();
           $player = $this->getServer()->getPlayer($args[0]);
-          $player_name = $player->getName();
-          unset($args[0]);
-          $reason = implode(" ", $args);
-          $player->sendMessage(TF::RED . "You have been warned by " . $sender_name . " for " . $reason . "!");
-          $this->getServer()->broadcastMessage(TF::LIGHT_PURPLE . "PUNISHMENT >" . TF::YELLOW . $player_name . " was warned by " . $sender_name . " for " . $reason . "!");
-          $sender->sendMessage(TF::GREEN . $player_name . " was warned for " . $reason . "!");
-          return true;
+          if($player === null) {
+            $sender->sendMessage(TF::RED . "Player " . $player . " could not be found.");
+          } else {
+            $player_name = $player->getName();
+            unset($args[0]);
+            $reason = implode(" ", $args);
+            $player->sendMessage(TF::RED . "You have been warned by " . $sender_name . " for " . $reason . "!");
+            $this->getServer()->broadcastMessage(TF::LIGHT_PURPLE . "PUNISHMENT >" . TF::YELLOW . $player_name . " was warned by " . $sender_name . " for " . $reason . "!");
+            $sender->sendMessage(TF::GREEN . $player_name . " was warned for " . $reason . "!");
+            return true;
+          }
         }
       }
     }
